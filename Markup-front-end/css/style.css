@@ -1,0 +1,801 @@
+@font-face {
+    font-family: myFFont;
+    src: url("../fonts/stormlight-stormlight-400.ttf");
+}
+@font-face {
+    font-family: mySFont;
+    src: url("../fonts/AstroSpace.ttf");
+}
+@font-face {
+    font-family: myTFont;
+    src: url("../fonts/Carollo-Playscript-Regular-Italic.otf");
+}
+@font-face {
+    font-family: myFoFont;
+    src: url("../fonts/Monsier-Regular.ttf");
+}
+
+*{
+    margin: 0px;
+    scrollbar-width: none;
+}
+body{
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.home-bg{
+    height: 100vh;
+}
+#home-bg-vd{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -99;
+}
+.bg-overlay{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(0,0,0,.91);
+    z-index: -98;
+}
+.markup-nav{
+    background-color: rgba(0,0,0,.7);
+    border: none;
+    display: flex;
+    color: white;
+    height: 60px;
+    align-items: center;
+}
+.nav-logo{
+    font-family: "myFFont";
+    font-size: 27pt;
+    margin-left: 20px;
+    user-select: none;
+}
+.nav-elements{
+    position: absolute;
+    right: 30px;
+    font-size: 14pt;
+    font-family: "mySFont";
+    display: flex;
+    align-items: center;
+    user-select: none;
+    
+}
+.items{
+    margin: 10px;
+    cursor:pointer;
+    z-index: 2;
+}
+.nav-btn{
+    background-color: white;
+    color: black;
+    display: flex;
+    height: 35px;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor:pointer;
+    margin-left: 10px;
+}
+.nav-btn:hover{
+    color: #00b400;
+    background-color: #e0e0e0;
+}
+
+.markup-start{
+    color: white;
+    position: absolute;
+    top: 45%;
+    left: 15%;
+    transform: translate(0,-50%);
+    width: 680px;
+    user-select: none;
+}
+.start-heading{
+    font-family: "myFFont";
+    font-size: 54pt;
+}
+.start-content{
+    margin-top: 10px;
+    overflow-wrap: break-word;
+    font-family: "myTFont";
+    font-size: 13.5pt;
+    text-align: justify;
+}
+.start-btn{
+    margin-top: 20px;
+    height: 35px;
+    background-color: #00ff00;
+    width: 165px;
+    color: black;
+    font-family: "myTFont";
+    font-size: 14pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    cursor: pointer;
+    z-index: -50;
+}
+.start-btn:hover{
+    height: 40px;
+    background-color: #00ff00;
+    width: 170px;
+    font-size: 15pt;
+}
+.start-btn-icon img{
+    height: 18px;
+    margin-left: 5px;
+    margin-top: 3px;
+}
+.markup-home-evaluating img{
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    width: 40%;
+    margin-bottom: 0;
+    z-index: -51;
+}
+.markup-footer{
+    position: fixed;
+    bottom: 0px;
+    font-family: "mySFont";
+    font-size: 11pt;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,1);
+    width: 100%;
+    height: 30px;
+    user-select: none;
+}
+#MarkupQuestionUpload{
+    color: white;
+    font-family: "myTFont";
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+}
+.Markup-Upload-heading{
+    font-size: 25pt;
+    position: absolute;
+    top: 10%;
+}
+.QUpload-section{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.QUpload-section-content{
+    width: 55%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7),rgba(0,0,0,0.9), rgba(0,0,0,1));
+    border: 4px dashed #9d9d9d;
+    cursor: pointer;
+}
+.QUpload-section-content:hover{
+    border-color: #00b400;
+}
+.QUpload-content-text{
+    font-size: 23pt;
+    text-align: center;
+    width: 60%;
+    margin-right: 40px;
+    
+}
+.QUpload-content-icon{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    
+}
+.QUpload-content-icon img{
+    height: 90%;
+}
+.QUpload-section-btn{
+    color:white;
+    --b: 4.5px;  
+    --c: white;  
+    --w: 20px; 
+
+    border: var(--b) solid #0000; 
+    --_g: #0000 90deg,var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g)) 100% 0    / var(--_p),
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--_g)) 0    100% / var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
+
+    width:120px;
+    height:60px;
+    margin:5px;
+    display:inline-flex;
+    font-family: "mySFont";
+    font-size:30px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin-top: 30px;
+    user-select: none;
+    cursor: pointer;
+}
+.QUpload-section-btn:hover{
+    --c: #00b400;
+    font-size:30.5px;
+}
+#QUploadReal{
+    display: none;
+}
+#MarkupInstructions{
+    position: absolute;
+    display: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    width: 50%;
+    height: 50%;
+    font-family: "myTFont";
+    border-radius: 6px;
+}
+.markup-tick{
+    background-color: #33c033;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.markup-tick img{
+    width: 40px;
+    height: 39px;
+}
+.inst-content{
+    position: absolute;
+    top: 18%;
+    left: 30px;
+    font-size: 18pt;
+}
+.inst-content-point{
+    font-size: 15pt;
+    margin-top: 10px;
+}
+.each-inst li{
+    margin-top: 10px;
+}
+.each-inst li::marker{
+    content: url(../images/ul.png);
+}
+.inst-btn{
+    background-color: #33c033;
+    width: 180px;
+    height: 40px;
+    font-size: 17pt;
+    font-family: "myFFont";
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%);
+    cursor: pointer;
+}
+.instruction-bg{
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -5;
+    opacity: 9%;
+}
+.instruction-bg img{
+    width: 100%;
+}
+#MarkupAnswerUpload{
+    color: white;
+    font-family: "myTFont";
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+}
+.AUpload-section{
+    position: absolute;
+    top: 60%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.AUpload-section-content{
+    width: 50%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.7),rgba(0,0,0,0.9), rgba(0,0,0,1));
+    border: 4px dashed #9d9d9d;
+    cursor: pointer;
+}
+.AUpload-section-content:hover{
+    border-color: #00b400;
+}
+.AUpload-content-text{
+    font-size: 23pt;
+    text-align: center;
+    width: 60%;
+    margin-left: 50px;
+}
+.AUpload-content-icon{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+.AUpload-content-icon img{
+    height: 80%;
+}
+.AUpload-section-btn{
+    color:white;
+    --b: 4.5px;  
+    --c: white;  
+    --w: 20px; 
+
+    border: var(--b) solid #0000; 
+    --_g: #0000 90deg,var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--_g)) 0    0    / var(--_p),
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--_g)) 100% 0    / var(--_p),
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--_g)) 0    100% / var(--_p),
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--_g)) 100% 100% / var(--_p);
+
+    width:120px;
+    height:60px;
+    margin:5px;
+    display:inline-flex;
+    font-family: "mySFont";
+    font-size:30px;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    margin-top: 30px;
+    user-select: none;
+    cursor: pointer;
+}
+.AUpload-section-btn:hover{
+    --c: #00b400;
+    font-size:30.5px;
+}
+#AUploadReal{
+    display: none;
+}
+.AUpload-detail{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: "myFoFont";
+    font-size: 20pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#MarkupResult{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    transform: translate(-50%,-50%);
+    height: 100%;
+    color: white;
+}
+.MarkupResult-detail{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20pt;
+    font-family: "myFoFont";
+    z-index: -50;
+}
+.MarkupResult-area{
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    transform: translate(-50%,-50%);
+}
+.MarkupResultTable{
+    color: black;
+    border: none;
+    font-family: "mySFont";
+}
+.MarkupResultTable thead{
+    background-color: white;
+    font-size: 15pt;
+}
+.MarkupResultTable thead td{
+    border: none;
+    padding: 10px 40px;
+}
+.MarkupResultTable tbody{
+    font-size: 15pt;
+    text-align: center;
+}
+.MarkupResultTable tbody td{
+    padding: 5px;
+}
+.MarkupResultTable tbody tr:nth-child(odd){
+  background-color: rgba(255,255,255,0.9);
+}
+.MarkupResultTable tbody tr:nth-child(even){
+  background-color: rgba(255,255,255,0.8);
+}
+.MarkupResultTable tfoot{
+    background-color: black;
+    color: white;
+    font-size: 16pt;
+}
+.MarkupResultTable tfoot th{
+    padding: 10px;
+}
+.DigitalAnswerSheet{
+    position: absolute;
+    left: 50%;
+    top: 86%;
+    transform: translate(-50%,50%);
+}
+.DigitalAnswerSheet a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-family: "myTFont";
+}
+#AUploadText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+:root {
+	--hue: 223;
+	--bg: hsl(var(--hue),90%,90%);
+	--fg: hsl(var(--hue),90%,10%);
+	--trans-dur: 0.3s;
+	font-size: calc(15px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+.smiley {
+	width: 1em;
+	height: 1em;
+}
+.smiley__eye1,
+.smiley__eye2,
+.smiley__mouth1,
+.smiley__mouth2 {
+	animation: eye1 3s ease-in-out infinite;
+}
+.smiley__eye1,
+.smiley__eye2 {
+	transform-origin: 64px 64px;
+}
+.smiley__eye2 {
+	animation-name: eye2;
+}
+.smiley__mouth1 {
+	animation-name: mouth1;
+}
+.smiley__mouth2 {
+	animation-name: mouth2;
+	visibility: hidden;
+}
+
+
+.Markup-about-title{
+    height: 35%;
+}
+.Markup-about-overlay{
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    background-color: rgba(0,0,0,.7);
+    z-index: -97;
+}
+.Markup-about-title-bg img{
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    z-index: -98;
+}
+.Markup-about-tile-content{
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%);
+    color: white;
+    font-family: "mySFont";
+    font-size: 45pt;
+    z-index: -96;
+}
+.Markup-about-tile-content-sub{
+    color: white;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 30%;
+    font-family: "myTFont";
+    font-size: 12pt;
+    opacity: 80%;
+    text-align: center;
+}
+.Markup-aboutUs{
+    background-image:url(../images/about-bg.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 40%;
+    color: white;
+    z-index: -90;
+}
+.Markup-about-why{
+    display: flex;
+    margin: 10px 50px 10px 50px;
+}
+.about-why-img img{
+    width: 400px;
+}
+.about-why-content{
+    margin: 40px 50px 0px 50px;
+}
+.about-why-title{
+    font-family: "mySFont";
+    font-size: 28pt;
+}
+.about-why-content-content{
+    font-family: "myTFont";
+    font-size: 14pt;
+    margin-top: 10px;
+}
+
+.Markup-about-approach{
+    display: flex;
+    margin: 20px 50px 10px 50px;
+}
+.about-approach-img img{
+    width: 400px;
+}
+.about-approach-content{
+    margin: 50px 50px 0px 50px;
+}
+.about-approach-title{
+    font-family: "mySFont";
+    font-size: 28pt;
+}
+.about-approach-content-content{
+    font-family: "myTFont";
+    font-size: 14pt;
+    margin-top: 10px;
+}
+.Markup-team-heading{
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.Markup-team-title{
+    font-family: "mySFont";
+    font-size: 28pt;
+    margin: 0px 20px 0px 20px;
+}
+.Markup-team-title-line{
+    background-color: white;
+    width: 32%;
+    height: 3px;
+    margin-bottom: 3.5px;
+    opacity: 70%;
+}
+.Markup-team-each{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.Markup-team-each-tilte{
+    font-family: "mySFont";
+    font-size: 18pt;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+.Markup-team-each-member{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.Markup-team-each-tile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Markup-each-member img{
+    width: 100%;
+}
+.Markup-each-member{
+    width: 150px;
+    height: 160px;
+    overflow: hidden;
+}
+/* Animations */
+.Markup-random{
+    height: 40px;
+}
+.Markup-each-member-name{
+    margin-top: 2px;
+}
+.Qpre{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loader {
+    width: 25px;
+    padding: 6px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #25b09b;
+    --_m:
+    conic-gradient(#0000 10%, #000),
+    linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+  to {
+    transform: rotate(1turn)
+  }
+}
+@keyframes eye1 {
+	from {
+		transform: rotate(-260deg) translate(0,-56px);
+	}
+	50%,
+	60% {
+		animation-timing-function: cubic-bezier(0.17,0,0.58,1);
+		transform: rotate(-40deg) translate(0,-56px) scale(1);
+	}
+	to {
+		transform: rotate(225deg) translate(0,-56px) scale(0.35);
+	}
+}
+@keyframes eye2 {
+	from {
+		transform: rotate(-260deg) translate(0,-56px);
+	}
+	50% {
+		transform: rotate(40deg) translate(0,-56px) rotate(-40deg) scale(1);
+	}
+	52.5% {
+		transform: rotate(40deg) translate(0,-56px) rotate(-40deg) scale(1,0);
+	}
+	55%,
+	70% {
+		animation-timing-function: cubic-bezier(0,0,0.28,1);
+		transform: rotate(40deg) translate(0,-56px) rotate(-40deg) scale(1);
+	}
+	to {
+		transform: rotate(150deg) translate(0,-56px) scale(0.4);
+	}
+}
+@keyframes eyeBlink {
+	from,
+	25%,
+	75%,
+	to {
+		transform: scaleY(1);
+	}
+	50% {
+		transform: scaleY(0);
+	}
+}
+@keyframes mouth1 {
+	from {
+		animation-timing-function: ease-in;
+		stroke-dasharray: 0 351.86;
+		stroke-dashoffset: 0;
+	}
+	25% {
+		animation-timing-function: ease-out;
+		stroke-dasharray: 175.93 351.86;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		animation-timing-function: steps(1,start);
+		stroke-dasharray: 175.93 351.86;
+		stroke-dashoffset: -175.93;
+		visibility: visible;
+	}
+	75%,
+	to {
+		visibility: hidden;
+	}
+}
+@keyframes mouth2 {
+	from {
+		animation-timing-function: steps(1,end);
+		visibility: hidden;
+	}
+	50% {
+		animation-timing-function: ease-in-out;
+		visibility: visible;
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: -351.86;
+	}
+}
+@media only screen and (max-width: 900px){
+    .markup-start{
+        left: 10%;
+        width: 80%;
+    }
+    .start-content{
+        font-size: 12pt;
+    }
+    .markup-home-evaluating img{
+        width: 55%;
+    }
+    .QUpload-section-content{
+        width: 90%;
+    }
+    .QUpload-content-text{
+        font-size: 18pt;
+        text-align: center;
+        width: 100%;
+
+    }
+}

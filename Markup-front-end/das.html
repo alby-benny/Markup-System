@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="css/das_style.css" />
+
+        <title>Markup</title>
+        <script
+			src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+			integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+    </head>
+    
+    <body>
+        <section class="DownloadBtn">
+            <button class="DBtn" onclick="GeneratePdf()">Download</button>
+        </section>
+        <section class="das-print" id="dasPrint">
+            <div class="das-random"></div>
+             <div class="das-margin" id="dasMargin">
+            </div>
+
+            <div class="das-answer-area" id="dasAnswerArea">
+                
+            </div>
+        </section>
+        <script>
+            var Answers = localStorage.getItem('Answers');
+            var Questions = localStorage.getItem('Questions').split(",");
+            var FR = localStorage.getItem('FR').split(",");
+            var JsonAnswers = JSON.parse(Answers);
+            var FD = JSON.parse(localStorage.getItem('FD'));
+            console.log(FD);
+            var QA ='';
+            var QAContent=document.getElementById('dasAnswerArea');
+            console.log(Questions.length);
+            for (var i = 0; i < Questions.length; i++) {
+                if(FR[i]=="0"){
+                    QA=QA+'<div class="das-answer-each"><div class="das-Question-section"><div class="dasQuestionNo">'+(i+1).toString()+'</div><div class="dasQuestion">'+Questions[i]+'</div></div><div class="das-Answer-section"><div class="dasAns">Ans</div><div class="dasAnswer">'+JsonAnswers['QNO'+(i+1).toString()]+'</div></div>';
+                }
+                else{
+                    QA=QA+'<div class="das-answer-each"><div class="das-Question-section"><div class="dasQuestionNo">'+(i+1).toString()+'</div><div class="dasQuestion">'+Questions[i]+'</div></div><div class="das-Answer-section"><div class="dasAns">Ans</div><div class="dasAnswer">'+JsonAnswers['QNO'+(i+1).toString()]+'</div></div></div><div class="das-figure-section"><div class="dasFig">Figure Description:</div><div class="dasFigure">'+FD[(i+1).toString()]+'</div></div>';
+                }
+                
+            }
+            QAContent.innerHTML=QA;
+            function GeneratePdf(){
+                const element=document.getElementById('dasPrint');
+                html2pdf().from(element).save();
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Markup</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    </head>
+    
+    <body>
+        <section class="home-bg" >
+            <video id="home-bg-vd" autoplay loop muted poster="images/markup-home-poster.png">
+              <source src="images/markup-home.mp4" type="video/mp4">
+            </video>
+            <div class="bg-overlay"></div>
+            <header>
+                <nav class="markup-nav">
+                    <div class="nav-logo">
+                        Markup
+                    </div>
+                    <div class="nav-elements">
+                        <span class="items" onclick="homeBtn()">
+                            Home
+                        </span>
+                        <span class="items" onclick="aboutBtn()">
+                            About
+                        </span>
+                        <span class="nav-btn" onclick="Markup_start()">
+                            Get Started
+                        </span>
+                    </div>
+                </nav>
+            </header>
+            <footer class="markup-footer">
+                <div class="markup-footer-content">
+                    Developed by GraphoMind | PixelPhrase | Riddler.
+                </div>
+            </footer>
+            <section id="MarkupInitally">
+                <div class="markup-start">
+                    <div class="start-heading">
+                        Markup
+                    </div>
+                    <div class="start-content">
+                        <p>Discover the future of grading with our automated answer sheet 
+                            evaluation solution. The Markup system represents a collaborative 
+                            effort between three innovative groups: GraphoMind, PixelPhrase, 
+                            and Riddler. Designed to revolutionize the way information is 
+                            organized and accessed, the Markup system underwent development 
+                            in two distinct phases. Sit back and let AI handle the workload 
+                            effortlessly. Welcome to our revolutionary system.</p>
+                    </div>
+                    <div class="start-btn" onclick="Markup_start()">
+                        <span class="start-btn-text">
+                            Get Started
+                        </span>
+                        <span class="start-btn-icon"><img src="images/next.png"/></span>
+                    </div>
+                </div>
+                <div class="markup-home-evaluating"><img src="images/markup-eva.png"></div>
+            </section>
+            
+            <section id="MarkupInstructions">
+                <div class="markup_inst">
+                    <div class="instruction-bg">
+                        <img src="images/Group%205.png"/>
+                    </div>
+                    <div class="markup-tick">
+                        <img src="images/Shape%202.png"/>
+                    </div>
+                    <div class="inst-content">
+                        <div class="inst-content-main">
+                            Please read the instructions:
+                        </div>
+                        <div class="inst-content-point">
+                            <ul class="each-inst">
+                                <li>Only upload the file in pdf format.</li>
+                                <li>Ensure that the question paper is in right format.</li>
+                                <li>Avoid going back to pervious pages.</li>
+                                <li>If you any doubt, please refer the about page.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="inst-btn" onclick="Markup_Instr()" >Ok</div>
+                </div>
+            </section>
+            
+            <section id="MarkupQuestionUpload">
+                <div class="Markup-Upload-heading">
+                    Evaluate Your Answer Sheet Now
+                </div>
+                <div class="QUpload-section">
+                    <input id="QUploadReal" type="file" accept="application/pdf" name="myQuestionPaper">
+                    <div id="QUploadChanger" class="QUpload-section-content" onclick="QuestionUpload()">
+                        <div class="QUpload-content-text" id="QUploadText">Browse Question Paper from 
+your computer</div>
+                        <div class="QUpload-content-icon"><img src="images/checklist.png"/></div>
+                    </div>
+                    <div class="QUpload-section-btn" id="QUploadBtn"><div class="QUpload-section-btn-text" >Next</div></div>
+                </div>
+            </section>
+            
+            
+            <section id="MarkupAnswerUpload">
+                <div class="Markup-Upload-heading">
+                    Evaluate Your Answer Sheet Now
+                </div>
+                <div class="AUpload-detail">
+                    <div id="AUploadSubject">
+                        SUBJECT: BIG DATA ANALYCS
+                    </div>
+                    <div id="AUploadTQ">Total Question: 1</div>
+                </div>
+                <div class="AUpload-section">
+                    <input id="AUploadReal" type="file" accept="application/pdf" name="myAnswerSheet">
+                    <div id="AUploadChanger" class="AUpload-section-content" onclick="AnswerUpload()">
+                        <div class="AUpload-content-icon"><img src="images/question-and-answer.png"/></div>
+                        <div class="AUpload-content-text" id="AUploadText">Browse Answer Sheet from 
+your computer</div>
+                    </div>
+                    <div class="AUpload-section-btn" id="AUploadBtn"><div class="AUpload-section-btn-text" >Next</div></div>
+                </div>
+            </section>
+            
+        </section>
+        
+        <script type="application/javascript" src="index.js"></script>
+    </body>
+</html>

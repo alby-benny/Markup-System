@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Markup</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
+    </head>
+    
+    <body>
+        <section class="home-bg" >
+            <video id="home-bg-vd" autoplay loop muted poster="images/markup-home-poster.png">
+              <source src="images/markup-home.mp4" type="video/mp4">
+            </video>
+            <div class="bg-overlay"></div>
+            <header>
+                <nav class="markup-nav">
+                    <div class="nav-logo">
+                        Markup
+                    </div>
+                    <div class="nav-elements">
+                        <span class="items" onclick="homeBtn()">
+                            Home
+                        </span>
+                        <span class="items" onclick="aboutBtn()">
+                            About
+                        </span>
+                        <span class="nav-btn" onclick="homeBtn()">
+                            Get Started
+                        </span>
+                    </div>
+                </nav>
+            </header>
+            <footer class="markup-footer">
+                <div class="markup-footer-content">
+                    Developed by GraphoMind | PixelPhrase | Riddler.
+                </div>
+            </footer>
+            <section id="MarkupResult">
+                <div class="MarkupResult-detail">
+                    <div id="MarkupResultSubject">
+                        SUBJECT: BIG DATA ANALICS
+                    </div>
+                    <div id="MarkupResultTQ">
+                        Total Question: 15
+                    </div>
+                </div>
+                <div class="MarkupResult-area">
+                    <table class="MarkupResultTable" cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <td>
+                                    QUESTION NO
+                                </td>
+                                <td>
+                                    MARK
+                                </td>
+                                <td>
+                                    OUT OFF
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody id="MarkupResultBody">
+                        </tbody>
+                        <tfoot id="MarkupResultFoot">
+                            
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="DigitalAnswerSheet"><a href="das.html">Download Digital Answer Sheet Here</a>
+                </div>
+            </section>
+            
+        </section>
+        <script>
+            // Retrieve data from localStorage
+            var tableContent = localStorage.getItem('tableContent');
+            var tfootContent = localStorage.getItem('tfootContent');
+            var SD = localStorage.getItem('SD').split("\n");
+            var SName = localStorage.getItem('SD').split("\n")[0];
+            
+            
+            var rollNo = null;
+
+            for (var i = 0; i < SD.length; i++) {
+                var match = SD[i].match("Roll No");
+                var numPattern = /\d+/;
+                if (match) {
+                    if(numPattern.test(SD[i])){
+                        rollNo=SD[i].split(":")[1]
+                    }
+                    else{
+                        rollNo = SD[i+1];
+                    }
+                    break;
+                }
+            }
+            
+            document.getElementById("MarkupResultSubject").innerHTML = "NAME: "+SName.split(":")[1];
+            document.getElementById("MarkupResultTQ").innerHTML = "RollNo: "+rollNo;
+            console.log(SD);
+            // Set the table content
+            document.getElementById("MarkupResultBody").innerHTML = tableContent;
+            document.getElementById("MarkupResultBody").innerHTML = tableContent;
+            document.getElementById("MarkupResultFoot").innerHTML = tfootContent;
+            function homeBtn(){
+                window.location.replace("index.html");
+            }
+            function aboutBtn(){
+                window.location.replace("about.html");
+            }
+            
+        </script>
+        
+    </body>
+    
+</html>

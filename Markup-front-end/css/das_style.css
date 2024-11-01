@@ -1,0 +1,109 @@
+@font-face {
+    font-family: myFFont;
+    src: url("../fonts/stormlight-stormlight-400.ttf");
+}
+@font-face {
+    font-family: mySFont;
+    src: url("../fonts/AstroSpace.ttf");
+}
+@font-face {
+    font-family: myTFont;
+    src: url("../fonts/Carollo-Playscript-Regular-Italic.otf");
+}
+*{
+    margin: 0px;
+    scrollbar-width: none;
+}
+body{
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+#dasPrint{
+    top: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    scrollbar-width: none;
+    width: 21cm;
+}
+
+.das-header{
+    margin-top: 25px;
+}
+.das-header-1{
+    position: relative;
+    right: 10px;
+    font-family: "myTFont";
+    font-size: 13pt;
+}
+.das-header-2{
+    position: relative;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    font-family: "myTFont";
+    font-size: 13pt;
+    width: 21cm;
+    height: 3.5cm;
+    justify-content: space-around;
+}
+.das-header-2-1{
+    margin-left: 120px;
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+}
+.das-margin-2{
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    position: relative;
+}
+.das-answer-area{
+    position: relative;
+    margin-top: 2%;
+    height: auto;
+    width: 98%;
+}
+.das-Question-section{
+    display: flex;
+    margin-left: 60px;
+    font-size: 12pt;
+}
+.dasQuestion{
+    margin-left: 35px;
+    font-weight: 600;
+}
+.das-Answer-section{
+    margin-left: 60px;
+    font-size: 12pt;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.dasAns{
+    font-weight: 600;
+    z-index: 50;
+}
+.dasAnswer{
+    margin-left: 45px;
+    text-align: justify;
+}
+.das-figure-section{
+    font-size: 12pt;
+    margin-left: 110px;
+}
+.dasQuestionNo{
+    font-weight: 600;
+}
+.dasFig{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.dasFigure{
+    margin-bottom: 10px;
+    margin-left: 15px;
+    text-align: justify;
+}
